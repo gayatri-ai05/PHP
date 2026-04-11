@@ -1,0 +1,61 @@
+Q5.Write a PHP script to accept Employee details(Eno, Ename, Address) on first page.
+On second page accept earning(Basic,DA,HRA).On third page print Employeeinfo(Eno, Ename, Address,
+Basic,DA,HRA,Total)[Use Session].
+
+1stPage
+<html>
+<body>
+<form method="POST" action="Q5_1.php">
+Enter emp no : <input type="text" name="t1"><br>
+Enter emp name : <input type="text" name="t2"><br>
+Enter emp address : <input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+2ndPage
+<?php
+	session_start();
+	$eno=$_POST['t1'];
+	$ename=$_POST['t2'];
+	$addr=$_POST['t3'];
+	
+	$_SESSION["eno"]=$eno;
+	$_SESSION["ename"]=$ename;
+	$_SESSION["addr"]=$addr;
+?>
+<html>
+<body>
+<form method="POST" action="Q5_2.php">
+Basic::<input type="text" name="t1"><br>
+DA::<input type="text" name="t2"><br>
+HRA::<input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+3rdPage
+<?php
+	session_start();
+	$da=$_POST['t1'];
+	$basic=$_POST['t2'];
+	$hra=$_POST['t3'];
+	
+	$eno=$_SESSION["eno"];
+	$ename=$_SESSION["ename"];
+	$addr=$_SESSION["addr"];
+	
+	$tot=$da+$hra+$basic;
+	
+	echo "<br>Emp no:: ".$eno;
+	echo "<br>Emp name:: ".$ename;
+	echo "<br>Emp addr:: ".$addr;
+	
+	echo "<br>Emp DA:: ".$da;
+	echo "<br>Emp BASIC:: ".$basic;
+	echo "<br>Emp HRA:: ".$hra;
+	
+	echo "<br>Emp total:: ".$tot;
+?>
