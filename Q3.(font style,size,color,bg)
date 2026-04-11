@@ -1,0 +1,55 @@
+Q3.Write a PHP script to change the preferences of your web page like font style, 
+font size,font color,background color using cookie.Display selected setting on next web page and actual 
+implementation (with new settings) on third page.
+
+1stPage
+<html>
+<body>
+<form action="Q3_1.php" method="POST">
+Enter Font Style : <input type="text" name="t1"><hr>
+Enter Font Size : <input type="text" name="t2"><hr>
+Enter Color : <input type="text" name="t3"><hr>
+Enter Background-Color : <input type="text" name="t4"><hr>
+<input type="Submit" Value="Next">
+</form>
+</body>
+</html>
+
+
+2ndPage
+<?php
+	$style=$_POST["t1"];
+	$size=$_POST["t2"];
+	$color=$_POST["t3"];
+	$bgcolor=$_POST["t4"];
+	
+	setcookie("style",$style,time()+3600);
+	setcookie("size",$size,time()+3600);
+	setcookie("color",$color,time()+3600);
+	setcookie("bgcolor",$bgcolor,time()+3600);
+	
+	echo "<br>Style is: ".$style;
+	echo "<br>Size is: ".$size;
+	echo"<br>Color is: ".$color;
+	echo "<br>BgColor is: ".$bgcolor;
+	
+?>
+<html>
+<body>
+<a href="Q3_2.php">OK</a>
+</body>
+</html>
+
+
+3rdPage
+<?php
+	$style=$_COOKIE["style"];
+	$size=$_COOKIE["size"];
+	$color=$_COOKIE["color"];
+	$bgcolor=$_COOKIE["bgcolor"];
+	
+	echo "<br><font style=$style>Hello ";
+	echo "<br><font size =$size>Hello ";
+	echo "<br><font color =$color>Hello ";
+	echo "<br><body bgcolor =$bgcolor>";
+?>
