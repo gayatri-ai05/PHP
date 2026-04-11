@@ -1,0 +1,60 @@
+Q7.Crete a form to accept customer information (Name, Addr, MobNo). Once the customer information is accepted, 
+accept product information in the next form (ProdName, Qty, Rate). Generate the bill for the 
+customer in the next form. Bill should contain the customer information and the information
+of the products entered. 
+
+1stPage
+<html>
+<body>
+<form method="POST" action="Q7_1.php">
+Enter customer name : <input type="text" name="t1"><br>
+Enter customer address : <input type="text" name="t2"><br>
+Enter mobile no.  : <input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+2ndPage
+<?php
+	$cname=$_POST['t1'];
+	$addr=$_POST['t2'];
+	$mno=$_POST['t3'];
+	
+	setcookie("cname",$cname);
+	setcookie("addr",$addr);
+	setcookie("mno",$mno);
+?>
+<html>
+<body>
+<form method="POST" action="Q7_2.php">
+Product name : <input type="text" name="t1"><br>
+Qty : <input type="text" name="t2"><br>
+Rate : <input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+3rdPage
+<?php
+	$pname=$_POST['t1'];
+	$qty=$_POST['t2'];
+	$rate=$_POST['t3'];
+	
+	$cname=$_COOKIE["cname"];
+	$addr=$_COOKIE["addr"];
+	$mno=$_COOKIE["mno"];
+	
+	$tot=$qty*$rate;
+	
+	echo "<br>Customer Name :: ".$cname;
+	echo "<br>Address :: ".$addr;
+	echo "<br>Mobile No :: ".$mno;
+	
+	echo "<br>Product Name :: ".$pname;
+	echo "<br>Quantity :: ".$qty;
+	echo "<br>Rate :: ".$rate;
+	
+	echo "<br>Total :: ".$tot;
+?>
