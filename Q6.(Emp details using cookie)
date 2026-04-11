@@ -1,0 +1,59 @@
+Q6.Write a PHP script to accept Employee details (Eno, Ename, Address) on first page. 
+On second page accept earning (Basic, DA, HRA).On third page print Employee information 
+(Eno, Ename, Address, Basic, DA, HRA, Total) [Use Cookies] 
+
+1stPage
+<html>
+<body>
+<form method="POST" action="Q6_1.php">
+Enter emp no : <input type="text" name="t1"><br>
+Enter emp name : <input type="text" name="t2"><br>
+Enter emp address : <input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+2ndPage
+<?php
+	$eno=$_POST['t1'];
+	$ename=$_POST['t2'];
+	$addr=$_POST['t3'];
+	
+	setcookie("eno",$eno);
+	setcookie("ename",$ename);
+	setcookie("addr",$addr);
+?>
+<html>
+<body>
+<form method="POST" action="Q6_2.php">
+Basic::<input type="text" name="t1"><br>
+DA::<input type="text" name="t2"><br>
+HRA::<input type="text" name="t3"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+3rdPage
+<?php
+	$da=$_POST['t1'];
+	$basic=$_POST['t2'];
+	$hra=$_POST['t3'];
+	
+	$eno=$_COOKIE["eno"];
+	$ename=$_COOKIE["ename"];
+	$addr=$_COOKIE["addr"];
+	
+	$tot=$da+$hra+$basic;
+	
+	echo "<br>Emp no:: ".$eno;
+	echo "<br>Emp name:: ".$ename;
+	echo "<br>Emp addr:: ".$addr;
+	
+	echo "<br>Emp DA:: ".$da;
+	echo "<br>Emp BASIC:: ".$basic;
+	echo "<br>Emp HRA:: ".$hra;
+	
+	echo "<br>Emp total:: ".$tot;
+?>
