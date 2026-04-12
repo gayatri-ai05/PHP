@@ -1,0 +1,57 @@
+Q9.Link" Item. Xml" file to the CSS style sheet and get well formatted output as given below 
+a. ItemName: Color: red; Font-family: copperplate Gothic Light; Font-size: 16pt; Font:bold; 
+b. ItemPrice and Quantity color:yellow; font-family:Arial; font-size: 12 pt; font:bold; 
+
+1stPage
+
+<?xml version="1.0"?>
+<?xml-stylesheet href="Q9xml.css" type="text/css"?>
+<iteminfo>
+
+<item>
+<itemname>Pen</itemname>
+<qty>5</qty>
+<price>50</price>
+</item>
+
+<item>
+<itemname>Pencil</itemname>
+<qty>5</qty>
+<price>25</price>
+</item>
+
+<item>
+<itemname>Earser</itemname>
+<qty>5</qty>
+<price>50</price>
+</item>
+
+<item>
+<itemname>Pouch</itemname>
+<qty>5</qty>
+<price>100</price>
+</item>
+
+<item>
+<itemname>Bottle</itemname>
+<qty>1</qty>
+<price>150</price>
+</item>
+
+</iteminfo>
+
+2ndPage .css file
+itemname
+{
+	color:red;
+	font-family:coperplate Gothic Light;
+	font-size:16pt;
+	font:bold;
+}
+qty,price
+{
+	color:yellow;
+	font-family:Arail;
+	font-size:12pt;
+	font:bold;
+}
