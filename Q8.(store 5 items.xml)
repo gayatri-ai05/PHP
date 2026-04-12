@@ -1,0 +1,42 @@
+Q8.Write a script to create XML file named "Item.xml" 
+i.<item>
+  1. <ItemName>....</ItemName>
+  2. <ItemPrice>.....</ItemPrice> 
+  3. <Quantity></Quantity> 
+ii.</item>
+iii. Store the details of 5 Items of different Types 
+
+<?xml version="1.0"?>
+<Itemname>
+
+<Item>
+<Itemname>Pen</Itemname>
+<Itemprice>20</Itemprice>
+<Quantity>2</Quantity>
+</Item>
+
+<Item>
+<Itemname>Pencil</Itemname>
+<Itemprice>30</Itemprice>
+<Quantity>5</Quantity>
+</Item>
+
+<Item>
+<Itemname>Notebook</Itemname>
+<Itemprice>60</Itemprice>
+<Quantity>2</Quantity>
+</Item>
+
+<Item>
+<Itemname>Earser</Itemname>
+<Itemprice>20</Itemprice>
+<Quantity>2</Quantity>
+</Item>
+
+<Item>
+<Itemname>Pouch</Itemname>
+<Itemprice>20</Itemprice>
+<Quantity>1</Quantity>
+</Item>
+
+</Itemname>
