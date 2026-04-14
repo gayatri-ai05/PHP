@@ -1,0 +1,39 @@
+Q13.Write PHP script to read above created "book.xml" file into simpleXML object. 
+Display attributes and elements.(Hint : simple_xml_load_file() function) 
+
+Answer:::::::::::::::::::::::
+<?php
+
+$xml=simplexml_load_file("books1.xml");
+foreach($xml->book as $b)
+{
+	echo "<br>Bookno: ".$b->bookno;
+	echo "<br>Bookname: ".$b->bookname;
+	echo "<br>Authorname: ".$b->authorname;
+	echo "<br>Price: ".$b->price;
+	echo "<br>Year: ".$b->year;
+}
+?>
+
+create this file if not there with xml extension :::::::::::::::::::
+<?php
+$xml=new SimpleXMLElement("<BookInfo></BookInfo>");
+
+$book1 = $xml->addChild("book");
+$book1->addChild("bookno","1");
+$book1->addChild("bookname","JAVA");
+$book1->addChild("authorname","Balguru Swami");
+$book1->addChild("price","250");
+$book1->addChild("year","2006");
+
+$book2 = $xml->addChild("book");
+$book2->addChild("bookno","2");
+$book2->addChild("bookname","C");
+$book2->addChild("authorname","Denis Ritchie");
+$book2->addChild("price","500");
+$book2->addChild("year","1971");
+
+$xml->asXML("books1.xml");
+
+echo "XML File Created";
+?>
