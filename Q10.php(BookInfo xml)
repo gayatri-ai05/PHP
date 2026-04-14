@@ -1,0 +1,50 @@
+Q10.Write a PHP script to generate an XML file in the following format in PHP.
+<?xml version="1.0" encoding="UTF-8"?>
+<BookInfo>
+<book>
+<bookno>1</bookno>
+<bookname>JAVA</bookname>
+<authorname> Balguru Swami</authorname>
+<price>250</price>
+<year>2006</year>
+</book>
+<book>
+<bookno>2</bookno>
+<bookname>C</bookname>
+<authorname> Denis Ritchie</authorname>
+<price>500</price>
+<year>1971</year>
+</book>
+</BookInfo>
+
+
+Answer:::::::::
+<?php
+$str = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BookInfo>
+	<book>
+		<bookno>1</bookno>
+		<bookname>Java</bookname>
+		<authorname>abc</authorname>
+		<price>200</price>
+		<year>2006</year>
+	</book>
+	<book>
+		<bookno>2</bookno>
+		<bookname>Python</bookname>
+		<authorname>xyz</authorname>
+		<price>300</price>
+		<year>2009</year>
+	</book>
+</BookInfo>
+XML;
+
+$fname = "BookInfo.xml";
+$f = fopen($fname,"w");
+fwrite($f,$str);
+fclose($f);
+
+echo "success ".$fname;
+?>
