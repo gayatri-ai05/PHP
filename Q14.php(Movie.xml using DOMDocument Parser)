@@ -1,0 +1,42 @@
+Q14.Write a PHP script to read "Movie.xml" file and print all MovieTitle and ActorName of file using DOMDocument Parser. 
+"Movie.xml" file should contain following information with at least 5 records with values. 
+i. MovieInfo, MovieNo, MovieTitle, ActorName, ReleaseYear 
+
+Answer::::::::::::::::::::::::1st code save with .xml
+<?xml version="1.0"?>
+<movieinfo>
+	<movie>
+		<mno>101</mno>
+		<mtitle>Bhoothnath</mtitle>
+		<aname>Amitabh Bachan</aname>
+		<releaseyear>2025</releaseyear>
+	</movie>
+	<movie>
+		<mno>102</mno>
+		<mtitle>Pushpa</mtitle>
+		<aname>Allu Arjun</aname>
+		<releaseyear>2023</releaseyear>
+	</movie>
+	<movie>
+		<mno>103</mno>
+		<mtitle>Heropanti</mtitle>
+		<aname>Tiger Shroff</aname>
+		<releaseyear>2020</releaseyear>
+	</movie>
+</movieinfo>
+
+2nd code save with .php:::::::::::::::::::::::::::::
+<?php
+$dom=new DomDocument();
+$dom->load("Q14_1.xml");
+$title=$dom->getElementsByTagName("mtitle");
+$actor=$dom->getElementsByTagName("aname");
+foreach($title as $m)
+{
+	echo "<br>Movie Title : ".$m->textContent;
+}
+foreach($actor as $a)
+{
+	echo "<br>Actor Name : ".$a->textContent;
+}
+?>
