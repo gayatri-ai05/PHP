@@ -1,0 +1,33 @@
+Q15.Create a XML file which gives details of movies available in "Movie CD Store" from following categories 
+
+i.Classical 
+ii.Horror 
+iii.Action Elements in each category are in the following format 
+<Category>
+<MovieTitle>.............</MovieTitle>
+<ActorName>.............</ActorName>
+<ReleaseYear>.............</ReleaseYear>
+</Category>
+Save the file with name "movies.xml". 
+
+Answer:::::::::::::::::::::::::::::::::::::::
+<?xml version="1.0" ?>
+<movie>
+	<Category name="Classical">
+	<MovieTitle>Sita Ramam</MovieTitle>
+	<ActorName>Salmaan Dulquer</ActorName>
+	<ReleaseYear>2022</ReleaseYear>
+	</Category>
+	
+	<Category name="Horror">
+	<MovieTitle>Raaz</MovieTitle>
+	<ActorName>Emraan Hashmi</ActorName>
+	<ReleaseYear>2002</ReleaseYear>
+	</Category>
+	
+	<Category name="Action">
+	<MovieTitle>War</MovieTitle>
+	<ActorName>Hrithik Roshan</ActorName>
+	<ReleaseYear>2019</ReleaseYear>
+	</Category>
+</movie>
