@@ -1,0 +1,18 @@
+Q19.To insert text before and after an image using jQuery. [Hint: Use before() and after()] 
+
+Answer:::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+<script src="jquery-3.6.0.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$("img").before("rbnb");
+			$("img").after("college");
+		});
+	</script>
+</head>
+<body>
+	<img src="paste img link">
+</body>
+</html>
