@@ -1,0 +1,23 @@
+Q17.Add or append in paragraph text and also in the numbered(ordered) 
+    list in a given HTML document using jQuery selectors. 
+i. [Hint: Use Append() method] 
+
+Answer::::::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+	<script src="jquery-3.6.0.min.js"></script>
+	<script>
+	$(document).ready(function()
+	{
+		$("p").append("Hello");
+			$("ol").append("<li>Mango</li>");
+	});
+	</script>
+</head>
+<body>
+	<p>This is paragraph </p>
+	<ol type="1">
+	<li>Apple</li>
+	</ol>
+</body>
+</html>
