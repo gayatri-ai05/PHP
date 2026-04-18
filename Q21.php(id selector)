@@ -1,0 +1,21 @@
+Q21.Remove div section elements after clicking on button using jQuery. [Hint: Use #id selector] 
+
+Answer:::::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+<script src="jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function()
+		{
+			$("#b1").click(function()
+			{
+				$("#d").remove();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="d">Hello</div>
+	<button id="b1" type="submit">Remove</button>
+</body>
+</html>
