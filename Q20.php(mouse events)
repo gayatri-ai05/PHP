@@ -1,0 +1,53 @@
+Q20.Write a Javascript program to accept name of student, change font color to red, font size to 18 if student name is
+present otherwise on clicking on empty text box display image which changes its size 
+(Use onblur, onload, onmousehover, onmouseclick, onmouseup) 
+
+Answer:::::::::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+<script>
+function checkName(){
+    var n = document.getElementById("name").value;
+
+    if(n != ""){
+        document.getElementById("result").innerHTML = "Hello " + n;
+        document.getElementById("result").style.color = "red";
+        document.getElementById("result").style.fontSize = "18px";
+        document.getElementById("img").style.display = "none";
+    } 
+    else{
+        document.getElementById("img").style.display = "block";
+    }
+}
+
+function showImg(){
+    var n = document.getElementById("name").value;
+    if(n == ""){
+        document.getElementById("img").style.display = "block";
+    }
+}
+
+function big(){
+    document.getElementById("img").width = 200;
+}
+
+function small(){
+    document.getElementById("img").width = 100;
+}
+</script>
+</head>
+
+<body onload="alert('Page Loaded')">
+
+Enter Name:
+<input type="text" id="name" onblur="checkName()" onclick="showImg()">
+
+<br><br>
+
+<p id="result"></p>
+
+<img id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSsBo2TnbuTtx4fLkU1aDEeXhMGv8FdBxFTw&s" style="display:none"
+     onmouseover="big()" onmouseup="small()">
+
+</body>
+</html>
