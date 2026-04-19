@@ -1,0 +1,87 @@
+Q4.Write a PHP script to accept username and password. If in the first three chances,
+username and password entered is correct then display second form with “Welcome
+message” otherwise display error message. [Use Session]
+
+Answer::::::::::::::::::::::::::::::::::::::::::
+
+<?php
+session_start();
+$u=$_POST['uname'];
+$p=$_POST['pass'];
+if(isset($_SESSION['attempt']))
+{
+       if($u=="admin" && $p=="bcs123" && $_SESSION['attempt']<=3)
+       {
+                      echo"Welcome";
+        }
+        elseif($_SESSION['attempt']<=3)
+        {
+                  echo"error occured";
+                  $_SESSION['attempt']+=1;
+        }
+        else{
+                   echo"reach maximum attempt";
+             }
+  }
+  else
+  {
+             $_SESSION['attempt']=1;
+ }
+?>
+<html>
+<body>
+<form method="POST" action="#">
+Enter Username:<input type="text" name="uname">
+Enter Password:<input type="text" name="pass">
+<button type="submit">Submit</button>
+</body>
+</html>
+
+::::::::::::::::::::::::::::::::::::::::::OR::::::::::::::::::::::::::::::::::::::::::::::
+<?php
+session_start();
+
+if(!isset($_SESSION['attempt']))
+{
+    $_SESSION['attempt']=0;
+}
+
+if(isset($_POST['uname']) && isset($_POST['pass']))
+{
+    $u=$_POST['uname'];
+    $p=$_POST['pass'];
+
+    if($_SESSION['attempt']<3)
+    {
+        if($u=="admin" && $p=="bcs123")
+        {
+            echo "Welcome";
+
+            // Second form
+            echo "<form>";
+            echo "<br>Second Form<br>";
+            echo "<input type='text' placeholder='Enter something'>";
+            echo "</form>";
+        }
+        else
+        {
+            echo "error occured";
+            $_SESSION['attempt']+=1;
+        }
+    }
+    else
+    {
+        echo "reach maximum attempt";
+    }
+}
+?>
+
+<html>
+<body>
+<form method="POST" action="">
+Enter Username:<input type="text" name="uname"><br><br>
+Enter Password:<input type="text" name="pass"><br><br>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
