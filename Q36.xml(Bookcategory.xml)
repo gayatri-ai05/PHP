@@ -1,0 +1,38 @@
+Q36.Create a XML file which gives details of books available in “Bookstore” from
+following categories.
+1) Yoga
+2) Story
+3) Technical
+and elements in each category are in the following format
+<Book>
+<Book_Title> --------------</Book_Title>
+<Book_Author> ---------------</Book_Author>
+<Book_Price> --------------</Book_Price>
+</Book>
+Save the file as “Bookcategory.xml”
+
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<?xml version="1.0"?>
+<bookstore>
+    <category name="Yoga">
+        <Book>
+            <Book_Title>Yoga Basics</Book_Title>
+            <Book_Author>ABC</Book_Author>
+            <Book_Price>300</Book_Price>
+        </Book>
+    </category>
+    <category name="Story">
+        <Book>
+            <Book_Title>Short Stories</Book_Title>
+            <Book_Author>XYZ</Book_Author>
+            <Book_Price>500</Book_Price>
+        </Book>
+    </category>
+    <category name="Technical">
+        <Book>
+            <Book_Title>Java</Book_Title>
+           <Book_Author>ABC</Book_Author>
+            <Book_Price>300</Book_Price>
+        </Book>
+    </category>
+</bookstore>
