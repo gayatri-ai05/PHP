@@ -1,0 +1,24 @@
+Q30. Write a Java Script Program to print Fibonacci numbers on onclick event.
+
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+<script>function validate()
+{
+var a=document.getElementById("no").value;
+var n1=0,n2=1,i,c;
+for(i=1;i<=a;i++)
+{
+document.write(n1+" ");
+c=n1+n2;
+n1=n2;
+n2=c;
+}
+}
+</script>
+</head>
+<body>
+Enter num:<input type="text" id="no"><br>
+<input type="button" value="submit" onclick="validate()">
+</body>
+</html>
