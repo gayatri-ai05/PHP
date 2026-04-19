@@ -1,0 +1,40 @@
+Q26.Write Ajax program to print Order details by selecting a Customer’s name. Create table Customer
+and Order as follows with 1 : M
+cardinality CUSTOMER (cno, cname, city) and ORDER(ono, odate, shipping address)
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::
+<?php
+$cname=$_GET['cname'];
+$con=pg_connect("host=localhost port=5432 dbname=ty user=postgres password=tybcs");
+$q="select o.ono, o.odate, o.shipaddress from customer c,order o where c.cno=o.cno and
+cname='$cname';";
+$res=pg_query($con,$q);
+while($row=pg_fetch_row($res))
+{
+echo"$row[0] $row[1] $row[2]";
+}
+pg_close($con);
+?>
+<html><head>
+<script>
+function load(cname)
+{
+var x=new XMLHttpRequest();
+x.open("GET","prog1.php?cname="+cname,true);
+x.send();
+x.onreadystatechange=function()
+{
+if(x.readyState==4 && x.status==200)
+{
+document.getElementById("res").innerHTML=responseText;
+}
+}
+}
+</script>
+</head>
+<body>
+<select name="cname" onchage="load(this.value)">
+<option id="a">a<option>
+<option id="b">b<option>
+</select>
+<div id="res"></div>
+</body></html>
