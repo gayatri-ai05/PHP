@@ -1,0 +1,39 @@
+Q25.Create TEACHER table as follows TEACHER(tno, tname, qualification, salary). Write Ajax program to
+select a teachers name
+and print the selected teachers details.
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<html>
+<head>
+<script>
+function load(tname)
+{
+var x=new XMLHttpRequest();x.open("GET","prog1.php?tname="+tname,true);
+x.send();
+x.onreadystatechange=function()
+{
+if(x.readyState==4 && x.status==200)
+{
+document.getElementById("res").innerHTML=responseText;
+}
+}
+}
+</script>
+</head>
+<body>
+<select name="tname" onchage="load(this.value)">
+<option id="a">a<option>
+<option id="b">b<option>
+</select>
+<div id="res"></div>
+</body>
+</html>
+<?php
+$tname=$_GET['tname'];
+$con=pg_connect("host=localhost port=5432 dbname=ty user=postgres password=tybcs");$q="select * from teacher where tname='$tname';";
+$res=pg_query($con,$q);
+while($row=pg_fetch_row($res))
+{
+echo"$row[0] $row[1] $row[2] $row[3]";
+}
+pg_close($con);
+?>
