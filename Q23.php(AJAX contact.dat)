@@ -1,0 +1,52 @@
+Q23. Write AJAX program to read contact.dat file and print the contents of the
+file in a tabular format when the user clicks on print button. Contact.dat file
+should contain srno, name, residence number, mobile number, Address.
+[Enter at least 3 record in contact.dat file]
+  
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::
+
+1st Page.php
+// Create contact.dat file from terminal
+<?php
+$f=fopen("contact.dat","r");
+echo"<table border=1>";
+echo"<tr><th>Srno</th> <th>Name</th> <th>Residence no</th> <th>Mno</th>
+<th>Address</th></tr>";
+while($row=fscanf($f,"%s %s %s %s %s"))
+{
+echo"<tr>";
+foreach($row as $r)
+{
+echo"<td>$r</td>";
+}
+echo"</tr>";
+}
+echo"</table>";
+fclose($f);
+?>
+
+2nd Page.php
+
+<html>
+<head>
+<script>
+function load()
+{
+var x=new XMLHttpRequest();
+x.open("GET","Q23.php",true);
+x.send();
+x.onreadystatechange=function()
+{
+if(x.readyState==4 && x.status==200)
+{
+document.getElementById("res").innerHTML=x.responseText;
+}
+}
+}
+</script>
+</head>
+<body>
+<div id="res"></div>
+<button onclick="load()">print</button>
+</body>
+</html>
