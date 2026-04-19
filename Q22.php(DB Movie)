@@ -1,0 +1,42 @@
+Q22. Write AJAX program to print movie details by selecting an Actor’s name. Create tables Movie and
+Actor with 1:M cardinality as
+follows: Movie (mno,mname, release_year) Actor (ano,aname) [Use PostgreSQL] Solution
+
+Answer::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+<?php
+$aname=$_GET['aname'];
+$con=pg_connect("host=localhost port=5432 dbname=sakshi user=postgres password=tybcs");
+$q="select * from movie m,actor a where m.ano=a.ano and a.name='$aname';";
+$res=pg_query($con,$q);
+while($row=pg_fetch_row($res))
+{
+echo"row[0] $row[1] $row[2]";
+}
+pg_close($con);
+?>
+<html>
+<head>
+<script>
+function load(aname)
+{
+var x=new XMLHttpRequest();
+x.open("GET","prog1.php?aname="+aname,true);
+x.send();
+x.onreadystatechange=function(){
+if(x.readyState==4 && x.status==200)
+{
+document.getElementById("res").innerHTML=x.responseText;
+}
+}
+}
+</script>
+</head>
+<body>
+<select name="aname" onchange=load(this.value)>
+<option value="a">a</option>
+<option value="b">b</option>
+</select>
+<div id="res"></div>
+</body>
+</html>
