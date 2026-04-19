@@ -1,0 +1,80 @@
+Q28.Write Ajax program to get book details from XML file when user
+select a book name. Create XML file for storing details of book(title,
+author, year, price).
+
+Answer:::::::::::::::::::::::::::::::::::::::::::::::::::
+
+1st Page
+
+<?php
+if(isset($_GET['bname']))
+{
+    $bname = $_GET['bname'];
+
+    $xml = simplexml_load_file("book1.xml");
+
+    foreach($xml->book as $b)
+    {
+        if($b->bookname == $bname)
+        {
+            echo "<br>Book no: ".$b->bookno;
+            echo "<br>Book name: ".$b->bookname;
+            echo "<br>Author name: ".$b->authorname;
+            echo "<br>Price: ".$b->price;
+            echo "<br>Year: ".$b->year;
+        }
+    }
+}
+?>
+
+<html>
+<head>
+<script>
+function load(bname)
+{
+    var x = new XMLHttpRequest();
+    x.open("GET","Q28.php?bname=" + bname, true);
+    x.send();
+
+    x.onreadystatechange = function()
+    {
+        if(x.readyState==4 && x.status==200)
+        {
+            document.getElementById("res").innerHTML = x.responseText;
+        }
+    }
+}
+</script>
+</head>
+
+<body>
+<select name="bname" onchange="load(this.value)">
+<option value="">Select Book</option>
+<option value="Java">Java</option>
+<option value="Python">Python</option>
+</select>
+
+<div id="res"></div>
+</body>
+</html>
+
+2nd(book1.xml)
+
+<?xml version="1.0"?>
+<books>
+    <book>
+        <bookno>1</bookno>
+        <bookname>Java</bookname>
+        <authorname>James Gosling</authorname>
+        <price>500</price>
+        <year>2020</year>
+    </book>
+
+    <book>
+        <bookno>2</bookno>
+        <bookname>Python</bookname>
+        <authorname>Guido van Rossum</authorname>
+        <price>450</price>
+        <year>2021</year>
+    </book>
+</books>
